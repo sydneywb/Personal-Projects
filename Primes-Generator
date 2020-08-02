@@ -1,0 +1,18 @@
+# this program will generate a list of prime numbers (and a list of composite numbers) from 1-1000
+primes, composites, multiple = [], [], 0
+hundred = [value for value in range(2,1001)]
+while hundred:
+	number = hundred[0]
+	primes.append(number)
+	hundred.remove(number)
+	for factor in range(500):
+		multiple = number * factor
+		if multiple in hundred:
+			hundred.remove(multiple)
+			composites.append(multiple)
+primes.sort()
+composites.sort()
+print("\nPrimes:")
+print(f"\t{primes}")
+print("\nComposites:")
+print(f"\t{composites}")
