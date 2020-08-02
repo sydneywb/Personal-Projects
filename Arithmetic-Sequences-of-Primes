@@ -1,0 +1,14 @@
+# this program will generate arithmetic progressions of prime numbers
+progressions = []
+for prime in primes:
+	for difference in range(1, int(len(primes) / 2)):
+		next_term = prime + difference
+		progression = [prime]
+		while next_term in primes:
+			progression.append(next_term)
+			next_term += difference
+		if len(progression) > 2:
+			progressions.append(progression)
+print("\nArithmetic Progressions of Primes:")
+for progression in progressions:
+	print(f"\t{progression}")
