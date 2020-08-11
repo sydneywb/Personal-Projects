@@ -1,0 +1,22 @@
+print("Let's analyze common words in a text!")
+while True:
+	titles = ['count_of_monte_cristo.txt', 'alice.txt', 'moby_dick.txt', 'little_women.txt']
+	print("Pick from the following texts:")
+	for title in titles:
+		print(f"\t- {title}")
+	filename = input('Type the name of your chosen text: ')
+	try:
+		with open(filename) as f:
+			contents = f.read()
+	except FileNotFoundError:
+		print('----------------------------------------------------------------')
+		print("The title you entered is not valid.")
+		print("Please type the exact name of one of the listed available texts.")
+		print('----------------------------------------------------------------')
+		continue
+	word = input('Which word would you like to look for? ')
+	word_count = contents.lower().count(word)
+	print(f"\tThe word {word} appears {word_count} times in {filename}.")
+	active = input("Would you like to run the program again? (yes/no) ")
+	if active.lower() == 'no':
+		break
